@@ -1,13 +1,42 @@
 {
     "pages": [
-        "pages/index/index"
+        "pages/index/index",
+        "pages/main/main",
+        "pages/search/search",
+        "pages/myinfo/myinfo",
+        "pages/favorites/favorites",
+        "pages/login/login",
+        "pages/classify/classify"
     ],
+    "tabBar":{
+        "color":"#9c9c9c",
+        "selectedColor":"#002469",
+        "list":[
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath":"./static/tabar-icon1.png",
+                "selectedIconPath":"./static/tabar-icon1-2.png"
+            },
+            {
+                "pagePath": "pages/classify/classify",
+                "text": "分类",
+                "iconPath":"./static/tabar-icon2.png",
+                "selectedIconPath":"./static/tabar-icon2-2.png"
+            },
+            {
+                "pagePath": "pages/main/main",
+                "text": "我的",
+                "iconPath":"./static/tabar-icon5.png",
+                "selectedIconPath":"./static/tabar-icon5-2.png"
+            }
+        ]
+    },
     "window": {
-        "backgroundColor": "#F6F6F6",
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#00246a",
         "navigationBarTitleText": "书籍管理",
-        "navigationBarTextStyle": "black"
+        "navigationBarTextStyle": "white"
     },
     "sitemapLocation": "sitemap.json",
     "style": "v2"
