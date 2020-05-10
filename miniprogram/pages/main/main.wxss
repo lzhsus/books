@@ -1,1 +1,253 @@
 /* pages/main/main.wxss */
+
+page{
+    background: #f4f4f8 url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/bg-01.png') no-repeat;background-size: 100% auto;
+}
+.my-list {
+    width: 700rpx;
+    margin: 0 auto 20rpx;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 20rpx;
+    box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.03);
+}
+
+.my-list .item {
+    width: 100%;
+    height: 107rpx;
+    font-size: 28rpx;
+    color: #000;
+    border-bottom: 1px solid #f2f3f7;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.my-list .item::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    right: 40rpx;
+    top: 50%;
+    border-bottom: 1px solid #bcbcbc;
+    border-left: 1px solid #bcbcbc;
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+.my-list .item .name {
+    margin-left: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.my-list .item .name::before {
+    width: 45rpx;
+    height: 45rpx;
+    display: block;
+    content: '';
+    margin-right: 35rpx;
+    background: url('') no-repeat left top;
+    background-size: cover;
+}
+
+.my-list .item .name.icon-1::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-01.png');
+}
+
+.my-list .item .name.icon-2::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-02.png');
+}
+
+.my-list .item .name.icon-3::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-03.png');
+}
+
+.my-list .item .name.icon-4::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-04.png');
+}
+
+.my-list .item .name.icon-5::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-05.png');
+}
+
+.my-list .item .name.icon-6::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-06.png');
+}
+
+.my-list .item .name.icon-7::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-07.png');
+}
+
+.my-list .item .name.icon-8::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-08.png');
+}
+
+.my-list .item .name.icon-9::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-09.png');
+}
+
+.my-list .item .name.icon-10::before {
+    background-image: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-10.png');
+}
+
+.my-list .item .text {
+    margin-right: 70rpx;
+
+}
+
+.my-list .item .text .dian {
+    width: 6px;
+    height: 6px;
+    background: #ff0000;
+    border-radius: 100px;
+}
+
+.my-list .item.this {
+    background: #f8f8fa;
+}
+
+
+
+
+.my-userinfo {
+    width: 700rpx;
+    margin: 0 auto 40rpx;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+}
+
+.my-userinfo .my-userinfo-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180rpx;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-avatar {
+    width: 124rpx;
+    height: 124rpx;
+    border-radius: 200px;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 2px 2px 20rpx rgba(0, 0, 0, 0.1);
+    margin-right: 30rpx;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-avatar .img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+.my-userinfo .my-userinfo-top .userinfo-right {
+    width: 470rpx;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-right-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-right-head .login {}
+
+.my-userinfo .my-userinfo-top .userinfo-right-head .login button {
+    font-size: 22rpx;
+    border: 0;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 2px 15rpx;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-right-head .login button::after {
+    display: none;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-right-head .name {
+    font-size: 40rpx;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-right-head .name::before {
+    width: 45rpx;
+    height: 45rpx;
+    display: block;
+    content: '';
+    margin-right: 10rpx;
+    background: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-11.png') no-repeat;
+    background-size: 100% auto;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-right-footer {
+    margin-top: 15rpx;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-right-footer .mobile {
+    font-size: 30rpx;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.my-userinfo .my-userinfo-top .userinfo-right-footer .mobile::before {
+    width: 45rpx;
+    height: 45rpx;
+    display: block;
+    content: '';
+    margin-right: 10rpx;
+    background: url('https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/my/icon-12.png') no-repeat;
+    background-size: 100% auto;
+}
+
+.my-userinfo .my-userinfo-bottom {
+    display: flex;
+    margin-top: 8rpx;
+}
+
+.my-userinfo .my-userinfo-bottom .item {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+}
+
+.my-userinfo .my-userinfo-bottom .item::after {
+    content: "";
+    width: 1px;
+    height: 52rpx;
+    background-color: #5a719e;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.my-userinfo .my-userinfo-bottom .item:last-child {}
+
+.my-userinfo .my-userinfo-bottom .item:last-child::after {
+    display: none;
+}
+
+.my-userinfo .my-userinfo-bottom .item text {
+    width: 100%;
+    text-align: center;
+}
+
+.my-userinfo .my-userinfo-bottom .item .num {
+    font-size: 36rpx;
+    margin-bottom: 8rpx;
+}
+
+.my-userinfo .my-userinfo-bottom .item .name {
+    font-size: 22rpx;
+}

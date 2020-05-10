@@ -1,2 +1,106 @@
 <!--pages/myinfo/myinfo.wxml-->
-<text>pages/myinfo/myinfo.wxml</text>
+<view class="page-container" id="memberPerfectinfo" wx:if="{{pageShow}}"> 
+    <view id="userPerfectInfo">
+        <view class="form-list">
+            <view class="item">
+                <text class="name">姓 名</text>
+                <view class="input"><input class="ipt" bindinput="bindKeyInput" data-name="name" value="{{user.name}}" placeholder="请输入姓名" /></view>
+            </view>
+            <view class="item mobile">
+                <text class="name">手机号</text>
+                <view class="input"><input class="ipt pointer-events-none" bindinput="bindKeyInput" data-name="mobile" value="{{user.mobile}}" placeholder="请输入手机号" /><button open-type="getPhoneNumber" class="button-opacity" bindgetphonenumber="getPhoneNumber">登录</button></view>
+            </view>
+            <view class="item">
+                <text class="name">性 别</text>
+                <view class="input down">
+                    <picker range="{{sexArray}}" range-key="name" value="{{sex.id}}" bindchange="bindPickerSexChange">
+                        <view class="picker placeholder" wx:if="{{!user.sex.name}}">请选择性别</view>
+                        <view class="picker" wx:else>{{user.sex.name}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="item">
+                <text class="name">出生日期</text>
+                <view class="input {{canChangeBirthday?'down':''}}">
+                    <picker mode="date" bindchange="bindBirthdayDateChange">
+                        <view class="picker placeholder" wx:if="{{!user.birthday}}">请选择出生日期</view>
+                        <view class="picker" wx:else>{{user.birthday}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="item">
+                <text class="name">邮 箱</text>
+                <view class="input"><input class="ipt" bindinput="bindKeyInput" data-name="email" value="{{user.email}}" placeholder="请输入邮箱" /></view>
+            </view>
+            <view class="item">
+                <text class="name">所在年纪</text>                
+                <view class="input"><input class="ipt" bindinput="bindKeyInput" data-name="grade" value="{{user.grade}}" placeholder="所在年纪" /></view>
+            </view>
+            <view class="item">
+                <text class="name">所在班级</text>                
+                <view class="input"><input class="ipt" bindinput="bindKeyInput" data-name="class" value="{{user.class}}" placeholder="所在班级" /></view>
+            </view>
+            <view class="item">
+                <text class="name">城市</text>
+                <view class="input down">
+                    <picker mode="region" bindchange="bindRegionChange">
+                        <view class="picker placeholder" wx:if="{{!user.city}}">请选择城市</view>
+                        <view class="picker" wx:else>
+                            {{user.city}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class="item">
+                <text class="name">详细地址</text>
+                <view class="input"><input class="ipt" bindinput="bindKeyInput" data-name="address" value="{{user.address}}" placeholder="请输入常住地址" /></view>
+            </view>
+        </view>
+        <view class="perfectinfo-bottom-height">
+            <view class="perfectinfo-bottom">
+                <view class="next-btn" bindtap="submitTap">提 交</view>
+            </view>
+        </view>
+    </view>
+    <view id="staffPerfectInfo" wx:if="{{pageShow=='staff'}}">
+        <view class="userinfo-main">
+            <view class="head">
+                <image src="http://200408fg0563demo.jdytoy.com/weapp/static/userinfo/img-01.png" mode="widthFix" class="img" />
+            </view>
+            <view class="list">
+                <view class="item">
+                    <text class="name">姓 名</text>
+                    <text class="value">{{name}}</text>
+                </view>
+                <view class="item">
+                    <text class="name">手机号</text>
+                    <text class="value">{{mobile}}</text>
+                </view>
+                <view class="item">
+                    <text class="name">所属地区</text>
+                    <text class="value">{{store.region}}</text>
+                </view>
+                <view class="item">
+                    <text class="name">省份</text>
+                    <text class="value">{{city[0]}}</text>
+                </view>
+                <view class="item">
+                    <text class="name">城市</text>
+                    <text class="value">{{city[1]}}</text>
+                </view>
+                <view class="item">
+                    <text class="name">行政区</text>
+                    <text class="value">{{city[2]}}</text>
+                </view>
+                <view class="item">
+                    <text class="name">所属门店</text>
+                    <text class="value">{{store.name}}</text>
+                </view>
+                <view class="item">
+                    <text class="name">隶属经销商</text>
+                    <text class="value"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

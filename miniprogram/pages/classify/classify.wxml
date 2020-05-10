@@ -1,2 +1,44 @@
 <!--pages/classify/classify.wxml-->
-<text>pages/classify/classify.wxml</text>
+
+<view class="page-container">
+    <view class="page-container-content" wx:if="{{pageShow}}">
+        <view class="main">
+            <view class="main-left">
+                <block wx:for="{{classify}}" wx:key="index">
+                    <view bindtap="mainLeftIndex" data-index="{{index}}" class="item {{item.active?'active':''}}">
+                        <text>{{item.name}}</text>
+                    </view>
+                </block>
+            </view>
+            <veiw class="main-right">
+                <scroll-view  scroll-y  bindscrolltolower="bindscrolltolower" style="width: 100%;height:100%;">
+                    <block wx:for="{{product}}" wx:key="index">
+                        <view class="li">
+                            <view class="img-box" bindtap="lookDetailBtn">
+                                <image class="img100" src="{{item.url}}" mode="widthFix" />
+                            </view>
+                            <view class="title">
+                                <view class="value" bindtap="lookDetailBtn">
+                                    {{item.title}}
+                                </view>
+                                <view class="desc" bindtap="lookDetailBtn">
+                                    {{item.desc}}
+                                </view>
+                                <view class="keen-on">
+                                    <view bindtap="likeBtn" data-index="{{index}}" class="like {{item.is_favorites?'active':''}}"></view>
+                                    <view class="share"><button class="button-opacity" open-type="share">分享</button></view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <view class='nodata-box' wx:if="{{!product.length}}">
+                        <view class="nodata-icon"></view>
+                        <view class="nodata-text">
+                            <view name="content">没有找到相关的内容...</view> 
+                        </view>
+                    </view>
+                </scroll-view>
+            </veiw>
+        </view>
+    </view>
+</view>

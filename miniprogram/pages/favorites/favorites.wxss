@@ -1,1 +1,80 @@
 /* pages/favorites/favorites.wxss */
+.content{
+    position: 25rpx;box-sizing: border-box;
+}
+ .li {
+    width: 536rpx;
+    margin: 20rpx auto 0;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(179, 177, 177, 0.6);
+    border-radius: 20rpx;
+    overflow: hidden;
+    padding: 20rpx;box-sizing: border-box;
+    display: flex;justify-content: flex-start;align-content: center;
+}
+ .li .img-box{
+    min-width: 160rpx;height: 160rpx;max-width: 160rpx;
+    display: flex;justify-content: center;align-content: center;
+}
+ .li:last-child {
+    margin: 20rpx auto;
+}
+
+ .li .title {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: relative;
+}
+
+.li .title .value {
+    display: block;
+    overflow: hidden;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-size: 15px;
+    color: #010101;
+}
+.li .title .desc {
+    font-size: 11px;
+    color: #747272;
+    display: block;
+    overflow: hidden;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.li .title .keen-on {
+    /* min-width: 110rpx; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;bottom: 0;right: 0;
+}
+
+.li .title .keen-on .like {
+    width: 36rpx;
+    height: 32rpx;
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center top no-repeat;
+    background-size: 36rpx auto;
+    margin: 0 8px;
+}
+
+.li .title .keen-on .like.active {
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center bottom no-repeat;
+    background-size: 36rpx auto;
+}
+
+.li .title .keen-on .share {
+    width: 36rpx;
+    height: 32rpx;
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/share-icon.png) center top no-repeat;
+    background-size: 36rpx auto;
+    position: relative;
+}

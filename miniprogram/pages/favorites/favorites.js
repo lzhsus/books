@@ -5,22 +5,17 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        pageShow:false,
+        favoritesProList:[]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.getFavorites()
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
 
     /**
      * 生命周期函数--监听页面显示
@@ -28,39 +23,30 @@ Page({
     onShow: function () {
 
     },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    getFavorites(){
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        });
+        var _this = this;
+        wx.cloud.callFunction({
+            name: 'getdata',
+            data: {
+                action:"getfavorites"
+            }
+        }).then(res=>{
+            wx.hideLoading()
+            res = res.result
+            res.result = res.result.map(obj=>{
+                obj.is_favorites=1
+                return
+            })
+            console.log('111',res.result)
+            _this.setData({
+                favoritesProList:res.result,
+                pageShow:true
+            })
+        })
     }
+
 })

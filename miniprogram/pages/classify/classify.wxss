@@ -1,1 +1,150 @@
 /* pages/classify/classify.wxss */
+page{
+    background: #e8e8f1;
+    width: 100%;height: 100%;
+}
+.page-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.page-container .page-container-content {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.main{
+    width: 100%;
+    height: 100%;
+    background: #e8e8f1;
+    display: flex;justify-content: space-between;align-items: flex-start;
+}
+/* 分类 */
+
+.main-left {
+    width: 166rpx;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.main-left .item {
+    width: 100%;
+    height: 130rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-left: 4px solid #e8e8f1;
+    padding: 20rpx;
+    box-sizing: border-box;
+    color: #002469;
+}
+
+.main-left text {
+    font-size: 26rpx;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+.main-left .item.active {
+    background: #fff;
+    color: #2fc48d;
+    border-left: 4px solid #2fc48d;
+
+}
+
+/* 内容 */
+.main-right {
+    width: 586rpx;
+    height: 100%;
+    background: #fff;
+}
+
+.main-right scroll-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-right scroll-view .li {
+    width: 536rpx;
+    margin: 20rpx auto 0;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(179, 177, 177, 0.6);
+    border-radius: 20rpx;
+    overflow: hidden;
+    padding: 20rpx;box-sizing: border-box;
+    display: flex;justify-content: flex-start;align-content: center;
+}
+.main-right scroll-view .li .img-box{
+    min-width: 160rpx;height: 160rpx;max-width: 160rpx;
+    display: flex;justify-content: center;align-content: center;
+}
+.main-right scroll-view .li:last-child {
+    margin: 20rpx auto;
+}
+
+.main-right scroll-view .li .title {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: relative;
+}
+
+.main-right scroll-view .li .title .value {
+    display: block;
+    overflow: hidden;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-size: 15px;
+    color: #010101;
+}
+.main-right scroll-view .li .title .desc {
+    font-size: 11px;
+    color: #747272;
+    display: block;
+    overflow: hidden;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.main-right scroll-view .li .title .keen-on {
+    /* min-width: 110rpx; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;bottom: 0;right: 0;
+}
+
+.main-right scroll-view .li .title .keen-on .like {
+    width: 36rpx;
+    height: 32rpx;
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center top no-repeat;
+    background-size: 36rpx auto;
+    margin: 0 8px;
+}
+
+.main-right scroll-view .li .title .keen-on .like.active {
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center bottom no-repeat;
+    background-size: 36rpx auto;
+}
+
+.main-right scroll-view .li .title .keen-on .share {
+    width: 36rpx;
+    height: 32rpx;
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/share-icon.png) center top no-repeat;
+    background-size: 36rpx auto;
+    position: relative;
+}

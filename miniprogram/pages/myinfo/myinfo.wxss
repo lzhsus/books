@@ -1,1 +1,114 @@
 /* pages/myinfo/myinfo.wxss */
+
+#userPerfectInfo {}
+
+#userPerfectInfo .form-list {
+    width: 684rpx;
+    margin: 0 auto;
+    font-size: 26rpx;
+    padding: 10rpx 0;
+}
+
+#userPerfectInfo .form-list .item {
+    border-bottom: 1px solid #dedede;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35rpx 0;
+}
+
+#userPerfectInfo .form-list .item .name {
+    line-height: 1.1;
+}
+
+#userPerfectInfo .form-list .item .input {
+    width: 432rpx;
+    position: relative;
+}
+
+#userPerfectInfo .form-list .item .input .ipt {
+    width: 100%;
+    text-align: right;
+    flex-shrink: 1;
+}
+
+#userPerfectInfo .form-list .item .input .text {
+    width: 100%;
+    text-align: right;
+    color: #999;
+}
+
+#userPerfectInfo .form-list .item .input picker {
+    width: 100%;
+}
+
+#userPerfectInfo .form-list .item .input picker .picker {
+    text-align: right;
+}
+
+#userPerfectInfo .form-list .item .input .placeholder {
+    color: #808080;
+}
+
+#userPerfectInfo .form-list .item .input.down {
+    display: flex;
+    align-items: center;
+}
+
+#userPerfectInfo .form-list .item .input.down:after {
+    content: " ";
+    min-width: 10rpx;
+    height: 15rpx;
+    display: block;
+    margin-left: 15rpx;
+    background: url('http://200408fg0563demo.jdytoy.com/weapp/static/colorservice/icon-04.png') no-repeat;
+    background-size: 100% auto;
+}
+
+#userPerfectInfo .form-list .item .input.txt {
+    display: flex;
+    align-items: center;
+}
+
+#userPerfectInfo .form-list .item .input.txt text {
+    margin-left: 15rpx;
+    flex-shrink: 2;
+    white-space: nowrap;
+}
+
+
+#userPerfectInfo .form-list .item.mobile {}
+
+
+#userPerfectInfo .perfectinfo-bottom-height {
+    height: 96rpx;
+}
+
+#userPerfectInfo .perfectinfo-bottom-height .perfectinfo-bottom {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    z-index: 10;
+}
+
+#userPerfectInfo .perfectinfo-bottom-height .perfectinfo-bottom .prev-btn {
+    background-color: #fff;
+    font-size: 30rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    color: #002469;
+    text-align: center;
+    min-width: 276rpx;
+}
+
+#userPerfectInfo .perfectinfo-bottom-height .perfectinfo-bottom .next-btn {
+    background-color: #2fc38f;
+    font-size: 30rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
