@@ -7,37 +7,41 @@
         <view bindtap="headTableBtn" data-id="{{3}}" class="{{headTableID==3?'li active':'li'}}">热门书籍</view>
     </view>
     <view class="order-ul">
-        <view class="li" wx:for="{{library}}" wx:key="index">
-            <view class="li-head">
-                <text class="number">订单编号：{{item.tid}}</text>
-                <text class="static color-0{{item.statusObj.status}}">{{item.statusObj.text}}</text>
-            </view> 
-            <view class="li-content" bindtap="openOrderDetailTap({{item}})">
-                <view class="goods-img"><image src="http://200408fg0563demo.jdytoy.com/weapp/static/logo.png" class="img100" mode="widthFix"/></view>
-                <view class="goods-msg">
-                    <view class="name">{{item.title}}</view>
-                    <view class="price-num-box">
-                        <text class="num">房间数：{{item.rooms.length}}</text>
-                        <text class="pirce">￥{{item.amounts}}</text>
+        <block wx:for="{{product}}" wx:key="index">
+            <view class="li">
+                <view class="img-box" bindtap="lookDetailBtn">
+                    <image class="img100" src="{{item.url}}" mode="widthFix" />
+                </view>
+                <view class="title">
+                    <view class="value" bindtap="lookDetailBtn">
+                        {{item.title}}
                     </view>
+                    <view class="desc" bindtap="lookDetailBtn">
+                        {{item.desc}}
+                    </view>
+                    <view class="desc" style="color:#99CC66" bindtap="lookDetailBtn">
+                        {{item.status?'已上架':'已下架'}}
+                    </view>
+                    <view class="desc" style="color:#CC0033" bindtap="lookDetailBtn">
+                        {{item.hot?'热门图书':''}}
+                    </view>
+                    <view class="desc" style="color:#99CC99" bindtap="lookDetailBtn">
+                        {{item.type_config?'热门图书':''}}
+                    </view>
+                    
+                    <!-- <view class="keen-on">
+                        <view bindtap="likeBtn" data-index="{{index}}" class="like {{item.is_favorites?'active':''}}"></view>
+                        <view class="share"><button class="button-opacity" open-type="share">分享</button></view>
+                    </view> -->
                 </view>
             </view>
-            <view class="li-footer">
-                <view class="btn" wx:if="{{item.statusObj.status!=1&&item.statusObj.status!=7&&item.statusObj.status!=8&&item.isRefund}}" bindtap="refundTap({{item}},{{index}})">申请退款</view>
-                <view class="btn" bindtap="cancelOrderTap({{item}},{{index}})" wx:if="{{item.statusObj.status==1}}">取消订单</view>
-                <view class="btn btn-01" bindtap="payOrderTap({{item}})" wx:if="{{item.statusObj.status==1}}">去付款</view>
-                <view class="btn btn-01" bindtap="openOrderDetailTap({{item}})" wx:if="{{item.statusObj.status==3||item.statusObj.status==7||item.statusObj.status==8||item.statusObj.status==4}}">查看订单详情</view>
-                <view class="btn btn-01" bindtap="openQuestionnaireTap({{item}})" wx:if="{{item.statusObj.status==2&&item.statusObj.status!=7}}">填写问卷</view>
-                <view class="btn btn-01" wx:if="{{item.statusObj.status==6&&item.statusObj.status!=7}}" bindtap="openGradeTap({{item}})">满意度打分</view>
-                <view class="btn btn-01" wx:if="{{item.statusObj.status==6||item.statusObj.status==9}}" bindtap="downloadTap({{item}})">下载设计方案</view>
-            </view>
-        </view>
-        
-        <view class='nodata-box' wx:if="{{!library.length}}">
+        </block>
+        <view class='nodata-box' wx:if="{{!product.length}}">
             <view class="nodata-icon"></view>
             <view class="nodata-text">
                 <view name="content">没有找到相关的内容...</view> 
             </view>
         </view>
+    
     </view>
 </view>

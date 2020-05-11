@@ -1,79 +1,130 @@
 /* pages/library/library.wxss */
 
-#orderList{}
-    #orderList  .head-table-list{
-         display: flex;justify-content:space-between;align-items: center;width: 100%;height: 80rpx;background: #fff;box-shadow:0 0 20rpx rgba(0,0,0,0.1);
-    }
-    #orderList  .head-table-list .li{
-            width: 20%;height: 80rpx;font-size: 14px;color: #002469;text-align: center;line-height: 80rpx;}
-            #orderList  .head-table-list .li.active{
-                position: relative;color:#2fc38f;}
-                #orderList  .head-table-list .li.active::after{
-                    position: absolute;bottom: 0;left: 50%;z-index: 2;transform: translateX(-50%);display: block;content: '';width: 60rpx;height: 4rpx;background: #2fc38f;
-                }
-            
-        
-    
-    #orderList .order-ul{
-        width: 700rpx;margin:30rpx auto 0;}
-        #orderList .order-ul  .li{
-            width: 100%;border-radius: 12rpx;margin-bottom: 25rpx;background: #fff;box-shadow:0 0 20rpx rgba(0,0,0,0.02);}
-            #orderList .order-ul  .li  .li-head{
-                height: 82rpx;padding: 0 26rpx;display: flex;justify-content: space-between;align-items: center;font-size: 12px;}
-                #orderList .order-ul  .li  .li-head .static{
-                    color: #c6c6c6;}
-                    #orderList .order-ul  .li  .li-head .static.color-03{
-                        color: #c6c6c6;
-                    }
-                    #orderList .order-ul  .li  .li-head .static.color-02,
-                    #orderList .order-ul  .li  .li-head .static.color-08,
-                    #orderList .order-ul  .li  .li-head .static.color-09{
-                        color: #2fc48d;
-                    }
-                    #orderList .order-ul  .li  .li-head .static.color-04,
-                    #orderList .order-ul  .li  .li-head .static.color-05{
-                        color: #00b6f8;
-                    }
-                    #orderList .order-ul  .li  .li-head .static.color-06{
-                        color: #e1b82a;
-                    }
-                    #orderList .order-ul  .li  .li-head .static.color-01,
-                    #orderList .order-ul  .li  .li-head .static.color-07{
-                        color: #f46161;
-                    }
-                
-                #orderList .order-ul  .li  .li-head .number{
-                    color: #000;
-                }
-            
-            #orderList .order-ul  .li  .li-content{
-                display: flex;justify-content: space-between;align-items: center;background: #fafafb;padding:26rpx 26rpx;}
-                #orderList .order-ul  .li  .li-content  .goods-img{
-                    width: 84rpx;height: 84rpx;display: flex;justify-content: center;align-items: center;
-                }
-                #orderList .order-ul  .li  .li-content  .goods-msg{
-                    width: 540rpx;}
-                    #orderList .order-ul  .li  .li-content  .goods-msg .name{
-                        font-size: 14px;color: #002469;font-weight: 600;margin-bottom: 4rpx;line-height:1.2;
-                    }
-                    #orderList .order-ul  .li  .li-content  .goods-msg .price-num-box{
-                        margin-top: 25rpx;display: flex;justify-content: space-between;align-items: center;}
-                        #orderList .order-ul  .li  .li-content  .goods-msg .price-num-box .pirce{
-                            font-size: 13px;color: #002469;font-weight: 900;
-                        }
-                        #orderList .order-ul  .li  .li-content  .goods-msg .price-num-box .num{
-                            font-size: 12px;color: #505050;
-                        }
-            #orderList .order-ul  .li  .li-footer{
-                height: 82rpx;display: flex;justify-content:flex-end;align-items: center;padding:0 26rpx;}
-                #orderList .order-ul  .li  .li-footer .btn{
-                    height: 44rpx;padding: 0 30rpx;font-size: 12px;color: #fff;text-align: center;line-height: 44rpx;margin-left: 16rpx;background-color:#d9d9d9;
-                    border-radius: 2px;border-top-right-radius: 10rpx;border-bottom-left-radius: 10rpx;}
-                    #orderList .order-ul  .li  .li-footer .btn.btn-01{
-                        background-color: #2fc48d;
-                    }
-                
-                
-            
-        
-    
+page{
+    background: #e8e8f1;
+}
+#orderList {}
+
+#orderList .head-table-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80rpx;
+    background: #fff;
+    box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+}
+
+#orderList .head-table-list .li {
+    width: 20%;
+    height: 80rpx;
+    font-size: 14px;
+    color: #002469;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+#orderList .head-table-list .li.active {
+    position: relative;
+    color: #2fc38f;
+}
+
+#orderList .head-table-list .li.active::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    display: block;
+    content: '';
+    width: 60rpx;
+    height: 4rpx;
+    background: #2fc38f;
+}
+
+
+/* 内容 */
+
+.order-ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;padding: 20rpx;box-sizing: border-box;
+}
+
+.order-ul .li {
+    margin: 20rpx auto 0;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(179, 177, 177, 0.6);
+    border-radius: 20rpx;
+    overflow: hidden;
+    padding: 20rpx;box-sizing: border-box;
+    display: flex;justify-content: flex-start;align-content: center;
+}
+.order-ul .li .img-box{
+    min-width: 160rpx;height: 160rpx;max-width: 160rpx;
+    display: flex;justify-content: center;align-content: center;
+}
+.order-ul .li:last-child {
+    margin: 20rpx auto;
+}
+
+.order-ul .li .title {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: relative;
+}
+
+.order-ul .li .title .value {
+    display: block;
+    overflow: hidden;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-size: 15px;
+    color: #010101;
+}
+.order-ul .li .title .desc {
+    font-size: 11px;
+    color: #747272;
+    display: block;
+    overflow: hidden;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.order-ul .li .title .keen-on {
+    /* min-width: 110rpx; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;bottom: 0;right: 0;
+}
+
+.order-ul .li .title .keen-on .like {
+    width: 36rpx;
+    height: 32rpx;
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center top no-repeat;
+    background-size: 36rpx auto;
+    margin: 0 8px;
+}
+
+.order-ul .li .title .keen-on .like.active {
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center bottom no-repeat;
+    background-size: 36rpx auto;
+}
+
+.order-ul .li .title .keen-on .share {
+    width: 36rpx;
+    height: 32rpx;
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/share-icon.png) center top no-repeat;
+    background-size: 36rpx auto;
+    position: relative;
+}

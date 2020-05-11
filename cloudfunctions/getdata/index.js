@@ -153,25 +153,27 @@ async function administrator(event) {
     const wxContext = cloud.getWXContext(); 
     // 超级管理员
     if(!event.type){
-        var db_product_list= await db.collection('db_product_list').get()
+        var db_product_list= await db.collection('db_product_list')
+        .limit(1000)
+        .get()
     }else{
         // status 1 上架
         var db_product_list= await db.collection('db_product_list').where({
             type:Number(event.type)
-        }).get()
+        }).limit(1000).get()
     }
+    db_product_list = db_product_list.data
 
-    for(let i=0;i<db_product_list.data.length;i++){
+    for(let i=0;i<db_product_list.length;i++){
         var favorites = await db.collection('is_favorites').where({
-            openId:wxContext.OPENID,
-            productId:db_product_list.data[i]._id
-        }).get()
-        db_product_list.data[i].is_favorites = favorites.data.length
+            productId:db_product_list[i]._id
+        }).count()
+        db_product_list[i].favorites_count = favorites.total
     }
 
     return {
         errcode:200,
-        result:db_product_list.data,
+        result:db_product_list,
         success:true
     }
 }
