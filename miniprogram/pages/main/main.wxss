@@ -95,7 +95,7 @@ page{
 }
 
 .my-list .item .text {
-    margin-right: 70rpx;
+    margin-right: 70rpx;font-size: 10px;color: rgb(127, 146, 255);
 
 }
 

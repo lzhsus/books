@@ -23,6 +23,6 @@
     <view class="my-list">
         <view class="item" hover-class="this" wx:for="{{mylistDatas}}" wx:key="index" bindtap="oepnPageTap" data-item="{{item}}">
             <text class="name {{item.icon}}">{{item.name}}</text> 
-            <text class="text {{item.dian?'dian':''}}"></text>
+            <text class="text {{item.dian?'dian':''}}">{{item.is}}</text>
         </view>             
     </view>

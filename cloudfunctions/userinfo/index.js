@@ -27,9 +27,13 @@ exports.main = async(event, context) => {
     }).get()
     var db_status= await db.collection('db_status').get()
     var result = userinfo.data[0]
-
+    // 获取管理员权限
+    var administrator= await db.collection('administrator').where({
+        openId:wxContext.OPENID
+    }).get()
     if (result) {
         result.is_status = db_status.data[0];
+        result.administrator = administrator.data.length
         return {
             errcode:200,
             result:result,
@@ -47,6 +51,7 @@ exports.main = async(event, context) => {
             data: data_info
         })
         data_info.is_status = db_status.data[0];
+        result.administrator = administrator.data.length
         return {
             errcode:200,
             result:data_info,

@@ -15,6 +15,10 @@ exports.main = async(event, context) => {
         case 'product': {
             return db_product_list(event)
         }
+        case 'administrator': {
+            return administrator(event)
+        }
+        
         case 'favorites':{
             return is_favorites(event)
         }
@@ -45,8 +49,9 @@ async function db_product_classify(event) {
 // 商品
 async function db_product_list(event) {
     const wxContext = cloud.getWXContext(); 
-    
+  
     var db_product_list= await db.collection('db_product_list').where({
+        inventory:_.gte(1),
         type:Number(event.type)
     }).get()
 
@@ -139,6 +144,34 @@ async function db_personal_info(event) {
     return {
         errcode:200,
         result:{},
+        success:true
+    }
+}
+// 超级管理员
+
+async function administrator(event) {
+    const wxContext = cloud.getWXContext(); 
+    // 超级管理员
+    if(!event.type){
+        var db_product_list= await db.collection('db_product_list').get()
+    }else{
+        // status 1 上架
+        var db_product_list= await db.collection('db_product_list').where({
+            type:Number(event.type)
+        }).get()
+    }
+
+    for(let i=0;i<db_product_list.data.length;i++){
+        var favorites = await db.collection('is_favorites').where({
+            openId:wxContext.OPENID,
+            productId:db_product_list.data[i]._id
+        }).get()
+        db_product_list.data[i].is_favorites = favorites.data.length
+    }
+
+    return {
+        errcode:200,
+        result:db_product_list.data,
         success:true
     }
 }

@@ -6,7 +6,8 @@
         "pages/myinfo/myinfo",
         "pages/favorites/favorites",
         "pages/login/login",
-        "pages/classify/classify"
+        "pages/classify/classify",
+        "pages/library/library"
     ],
     "tabBar":{
         "color":"#9c9c9c",

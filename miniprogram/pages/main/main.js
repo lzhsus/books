@@ -28,10 +28,16 @@ Page({
                 type: "2-5",
             },
             {
-                icon: 'icon-10',
+                icon: 'icon-5',
                 name: '版本信息',
                 dian: false,
                 type: "2-6",
+            },{
+                icon: 'icon-10',
+                name: '管理图书',
+                is:"管理员",
+                dian: false,
+                type: "2-7",
             },
         ],
     },
@@ -92,7 +98,6 @@ Page({
             return;
         }
         if( item.type=='2-5'){
-            // 用户协议
             wx.navigateTo({
                 url: '/pages/myinfo/myinfo',
             });
@@ -104,5 +109,12 @@ Page({
             });
             return;
         }
+        if( item.type=='2-7'){
+            wx.navigateTo({
+                url: '/pages/library/library',
+            });
+            return;
+        }
+        
     },
 })

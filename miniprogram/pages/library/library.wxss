@@ -1,0 +1,79 @@
+/* pages/library/library.wxss */
+
+#orderList{}
+    #orderList  .head-table-list{
+         display: flex;justify-content:space-between;align-items: center;width: 100%;height: 80rpx;background: #fff;box-shadow:0 0 20rpx rgba(0,0,0,0.1);
+    }
+    #orderList  .head-table-list .li{
+            width: 20%;height: 80rpx;font-size: 14px;color: #002469;text-align: center;line-height: 80rpx;}
+            #orderList  .head-table-list .li.active{
+                position: relative;color:#2fc38f;}
+                #orderList  .head-table-list .li.active::after{
+                    position: absolute;bottom: 0;left: 50%;z-index: 2;transform: translateX(-50%);display: block;content: '';width: 60rpx;height: 4rpx;background: #2fc38f;
+                }
+            
+        
+    
+    #orderList .order-ul{
+        width: 700rpx;margin:30rpx auto 0;}
+        #orderList .order-ul  .li{
+            width: 100%;border-radius: 12rpx;margin-bottom: 25rpx;background: #fff;box-shadow:0 0 20rpx rgba(0,0,0,0.02);}
+            #orderList .order-ul  .li  .li-head{
+                height: 82rpx;padding: 0 26rpx;display: flex;justify-content: space-between;align-items: center;font-size: 12px;}
+                #orderList .order-ul  .li  .li-head .static{
+                    color: #c6c6c6;}
+                    #orderList .order-ul  .li  .li-head .static.color-03{
+                        color: #c6c6c6;
+                    }
+                    #orderList .order-ul  .li  .li-head .static.color-02,
+                    #orderList .order-ul  .li  .li-head .static.color-08,
+                    #orderList .order-ul  .li  .li-head .static.color-09{
+                        color: #2fc48d;
+                    }
+                    #orderList .order-ul  .li  .li-head .static.color-04,
+                    #orderList .order-ul  .li  .li-head .static.color-05{
+                        color: #00b6f8;
+                    }
+                    #orderList .order-ul  .li  .li-head .static.color-06{
+                        color: #e1b82a;
+                    }
+                    #orderList .order-ul  .li  .li-head .static.color-01,
+                    #orderList .order-ul  .li  .li-head .static.color-07{
+                        color: #f46161;
+                    }
+                
+                #orderList .order-ul  .li  .li-head .number{
+                    color: #000;
+                }
+            
+            #orderList .order-ul  .li  .li-content{
+                display: flex;justify-content: space-between;align-items: center;background: #fafafb;padding:26rpx 26rpx;}
+                #orderList .order-ul  .li  .li-content  .goods-img{
+                    width: 84rpx;height: 84rpx;display: flex;justify-content: center;align-items: center;
+                }
+                #orderList .order-ul  .li  .li-content  .goods-msg{
+                    width: 540rpx;}
+                    #orderList .order-ul  .li  .li-content  .goods-msg .name{
+                        font-size: 14px;color: #002469;font-weight: 600;margin-bottom: 4rpx;line-height:1.2;
+                    }
+                    #orderList .order-ul  .li  .li-content  .goods-msg .price-num-box{
+                        margin-top: 25rpx;display: flex;justify-content: space-between;align-items: center;}
+                        #orderList .order-ul  .li  .li-content  .goods-msg .price-num-box .pirce{
+                            font-size: 13px;color: #002469;font-weight: 900;
+                        }
+                        #orderList .order-ul  .li  .li-content  .goods-msg .price-num-box .num{
+                            font-size: 12px;color: #505050;
+                        }
+            #orderList .order-ul  .li  .li-footer{
+                height: 82rpx;display: flex;justify-content:flex-end;align-items: center;padding:0 26rpx;}
+                #orderList .order-ul  .li  .li-footer .btn{
+                    height: 44rpx;padding: 0 30rpx;font-size: 12px;color: #fff;text-align: center;line-height: 44rpx;margin-left: 16rpx;background-color:#d9d9d9;
+                    border-radius: 2px;border-top-right-radius: 10rpx;border-bottom-left-radius: 10rpx;}
+                    #orderList .order-ul  .li  .li-footer .btn.btn-01{
+                        background-color: #2fc48d;
+                    }
+                
+                
+            
+        
+    
