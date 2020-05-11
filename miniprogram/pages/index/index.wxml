@@ -1,10 +1,62 @@
 <!--index.wxml-->
-<view class="container">
-	<!-- 用户 openid -->
-	<view class="userinfo">
-		<button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})" size="default"></button>
-		<view class="userinfo-nickname-wrapper">
-			<button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+<view wx:if="{{pageShow}}">
+	<view class="search-box">
+		<view class="search-top" bindtap="goToSearch">
+			<van-search focus="{{focus}}" disabled value="{{ searchValue }}" placeholder="请输入搜索关键词" use-action-slot bind:change="change" bind:search="search" bind:cancel="cancel"  bind:focus="bindfocus" bind:blur="bindblur">
+				<view slot="action" bind:tap="onClickSearch">搜索</view>
+			</van-search>
+		</view>
+	</view>
+
+
+	<view class="banner-box">
+		<swiper bindchange="bindchange" autoplay="{{autoplay}}">
+			<swiper-item>
+				<image src="../../static/banner-01.jpg" mode="widthFix" class="img100" />
+			</swiper-item>
+			<swiper-item>
+				<image src="../../static/banner-02.jpg" mode="widthFix" class="img100" />
+			</swiper-item>
+		</swiper>
+		<view class="indicator-dots">
+			<text class="{{current==0?'current':''}}"></text>
+			<text class="{{current==1?'current':''}}"></text>
+		</view>
+	</view>
+
+	<view class="hot-box">
+		<view class="head">热门推荐</view>
+		<view class="main">
+			<block wx:for="{{product}}" wx:key="index">
+				<view class="li">
+					<view class="img-box" bindtap="lookDetailBtn" data-item="{{item}}">
+						<image class="img100" src="{{item.url}}" mode="widthFix" />
+					</view>
+					<view class="title">
+						<view class="value" bindtap="lookDetailBtn" data-item="{{item}}">
+							{{item.title}}
+						</view>
+						<view class="desc" bindtap="lookDetailBtn" data-item="{{item}}">
+							{{item.desc}}
+						</view>
+						<view class="keen-on">
+							<view bindtap="likeBtn" data-index="{{index}}" class="like {{item.is_favorites?'active':''}}"></view>
+							<view class="share">
+								<button class="button-opacity" 
+									data-id="{{item._id}}" 
+									data-name="{{item.title}}" 
+									data-imageUrl="{{item.url}}" open-type="share">分享</button>
+							</view>
+						</view>
+					</view>
+				</view>
+			</block>
+			<view class='nodata-box' wx:if="{{!product.length}}">
+				<view class="nodata-icon"></view>
+				<view class="nodata-text">
+					<view name="content">没有找到相关的内容...</view> 
+				</view>
+			</view>
 		</view>
 	</view>
 </view>

@@ -1,4 +1,5 @@
 // pages/classify/classify.js
+const app = getApp()
 Page({
 
     /**
@@ -70,8 +71,20 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-
+   async onShow () {
+        await app.getUserInfo().then(res => {
+            console.log(app.globalData.userInfo)
+            this.setData({
+                userInfo: app.globalData.userInfo
+            })
+        })
+    },
+    // 查看详情
+    lookDetailBtn(e){
+        var item = e.currentTarget.dataset.item;
+        wx.navigateTo({
+          url: '/pages/detail/detail?id='+item._id,
+        })
     },
     // 切换标题
     mainLeftIndex(e){
@@ -88,8 +101,15 @@ Page({
         })
         this.getDataproduct()
     },
-    // 收场
+    // 收藏 取消
     likeBtn(e){
+        
+        if(!app.globalData.userInfo.isMember){
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+            return
+        }
         var index = e.currentTarget.dataset.index;
         var product = this.data.product;
         
@@ -114,5 +134,24 @@ Page({
                 product:product
             })
         })
+    },
+    onShareAppMessage (res) {
+        let obj = {};
+        if( res.from==='button' ) {
+            console.log(res.target.dataset)
+            obj = {
+                imageUrl: res.target.dataset.imageurl,
+                path: '/pages/detail/detail?id='+res.target.dataset.id,
+                title: res.target.dataset.name
+            };
+        }else{
+            obj = {
+                imageUrl: 'https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/share-icon.png?sign=69f0b5905dd49eb0e051c8539e3f1dd9&t=1589206924',
+                path: '/pages/index/index',
+                title: '好读者',
+            };
+        }
+        console.log('obj',obj)
+        return obj
     }
 })

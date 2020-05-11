@@ -6,6 +6,12 @@ page{
 .login-weapp{
     position: relative;
 }
+.login{
+    width: 180rpx;height: 180rpx;
+    border-radius: 50%;border:4rpx solid #ccc;
+    position: absolute;top: 220rpx;left: 50%;
+    transform: translateX(-50%);overflow:hidden;
+}
 .input-box{
     position: absolute;top: 604rpx;left: 194rpx;
     width: 440rpx;

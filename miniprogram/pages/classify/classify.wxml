@@ -14,19 +14,24 @@
                 <scroll-view  scroll-y  bindscrolltolower="bindscrolltolower" style="width: 100%;height:100%;">
                     <block wx:for="{{product}}" wx:key="index">
                         <view class="li">
-                            <view class="img-box" bindtap="lookDetailBtn">
+                            <view class="img-box" bindtap="lookDetailBtn" data-item="{{item}}">
                                 <image class="img100" src="{{item.url}}" mode="widthFix" />
                             </view>
                             <view class="title">
-                                <view class="value" bindtap="lookDetailBtn">
+                                <view class="value" bindtap="lookDetailBtn" data-item="{{item}}">
                                     {{item.title}}
                                 </view>
-                                <view class="desc" bindtap="lookDetailBtn">
+                                <view class="desc" bindtap="lookDetailBtn" data-item="{{item}}">
                                     {{item.desc}}
                                 </view>
                                 <view class="keen-on">
                                     <view bindtap="likeBtn" data-index="{{index}}" class="like {{item.is_favorites?'active':''}}"></view>
-                                    <view class="share"><button class="button-opacity" open-type="share">分享</button></view>
+                                    <view class="share">
+                                        <button class="button-opacity" 
+                                            data-id="{{item._id}}" 
+                                            data-name="{{item.title}}" 
+                                            data-imageUrl="{{item.url}}" open-type="share">分享</button>
+                                    </view>
                                 </view>
                             </view>
                         </view>

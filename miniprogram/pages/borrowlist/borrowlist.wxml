@@ -1,0 +1,42 @@
+<!--pages/library/library.wxml-->
+<view class="page-container" id="orderList" wx:if="{{pageShow}}">
+    <view class="head-table-list">
+        <view bindtap="headTableBtn" data-id="{{0}}" class="{{headTableID==0?'li active':'li'}}">全部</view>
+        <view bindtap="headTableBtn" data-id="{{1}}" class="{{headTableID==1?'li active':'li'}}">借阅中</view>
+        <view bindtap="headTableBtn" data-id="{{2}}" class="{{headTableID==2?'li active':'li'}}">已归还</view>
+        <view bindtap="headTableBtn" data-id="{{3}}" class="{{headTableID==3?'li active':'li'}}">已取消</view>
+    </view>
+    <view class="order-ul">
+        <block wx:for="{{product}}" wx:key="index">
+            <view class="item-box">
+                <view class="head-box">
+                    <text>{{item.out_trade_no}}</text>
+                </view>
+                <view class="li">
+                    <view class="img-box" bindtap="lookDetailBtn">
+                        <image class="img100" src="{{item.url}}" mode="widthFix" />
+                    </view>
+                    <view class="title">
+                        <view class="value" bindtap="lookDetailBtn">
+                            {{item.title}}
+                        </view>
+                        <view class="desc" bindtap="lookDetailBtn">
+                            {{item.desc}}
+                        </view>
+                        <view class="item" style="color:#000" bindtap="lookDetailBtn">
+                            <view class="lable">所属类别</view>
+                            <view class="l-value">{{item.type_config}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class='nodata-box' wx:if="{{!product.length}}">
+            <view class="nodata-icon"></view>
+            <view class="nodata-text">
+                <view name="content">没有找到相关的内容...</view> 
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 添加数据 -->

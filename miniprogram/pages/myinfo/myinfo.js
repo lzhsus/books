@@ -90,6 +90,11 @@ Page({
     submitTap(){
         console.log(this.data.user)
         var user = this.data.user;
+        for (var k in user) {
+            if(k=='_id'){
+                delete user[k];
+            }
+        }
         if( !user.name ){
             wx.showToast({
                 title: '请输入姓名',

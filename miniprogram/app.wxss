@@ -15,6 +15,7 @@ button::after {
 
 page {
   width: 100%;
+  background: #e8e8f1
 }
 
 .img100 {

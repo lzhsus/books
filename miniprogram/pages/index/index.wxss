@@ -1,153 +1,195 @@
 /**index.wxss**/
 
-page {
-  background: #f6f6f6;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.userinfo, .uploader, .tunnel {
-  margin-top: 40rpx;
-  height: 140rpx;
+.search-box {
   width: 100%;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: none;
-  border-right: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  transition: all 300ms ease;
+  height: 54px;
 }
 
-.userinfo {
-  padding-left: 120rpx;
-}
-
-.userinfo-avatar {
-  width: 100rpx;
-  height: 100rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-  background-size: cover;
-  background-color: white;
-}
-
-.userinfo-avatar[size] {
-  width: 100rpx;
-}
-
-
-.userinfo-avatar:after {
-  border: none;
-}
-
-.userinfo-nickname {
-  font-size: 32rpx;
-  color: #007aff;
-  background-color: white;
-  background-size: cover;
-  text-align: left;
-  padding-left: 0;
-  margin-left: 10px;
-}
-
-.userinfo-nickname::after {
-  border: none;
-}
-
-.userinfo-nickname-wrapper {
-  flex: 1;
-}
-
-.uploader, .tunnel {
-  height: auto;
-  padding: 0 0 0 40rpx;
-  flex-direction: column;
-  align-items: flex-start;
-  box-sizing: border-box;
-}
-
-.uploader-text, .tunnel-text {
+.search-box .search-top {
   width: 100%;
-  line-height: 52px;
-  font-size: 34rpx;
-  color: #007aff;
-}
-
-.uploader-container {
-  width: 100%;
-  height: 400rpx;
-  padding: 20rpx 20rpx 20rpx 0;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  box-sizing: border-box;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.uploader-image {
-  width: 100%;
-  height: 360rpx;
-}
-
-.tunnel {
-  padding: 0 0 0 40rpx;
-}
-
-.tunnel-text {
-  position: relative;
-  color: #222;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.tunnel-text:first-child {
-  border-top: none;
-}
-
-.tunnel-switch {
-  position: absolute;
-  right: 20rpx;
-  top: -2rpx;
-}
-
-.disable {
-  color: #888;
-}
-
-.service {
+  height: 54px;
   position: fixed;
-  right: 40rpx;
-  bottom: 40rpx;
-  width: 140rpx;
-  height: 140rpx;
-  border-radius: 50%;
-  background: linear-gradient(#007aff, #0063ce);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0 0 12px rgba(179, 177, 177, 0.6);
+}
+
+/* 热搜 */
+.search-record {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 46rpx 25rpx;
+  box-sizing: border-box;
+}
+
+.search-record .hot {
+  margin-bottom: 40rpx;
+  position: relative;
+}
+
+.search-record .hot .title {
+  color: #000000;
+  padding-bottom: 40rpx;
+  display: block;
+  font-size: 13px;
+}
+
+.search-record .hot .list {
   display: flex;
-  align-content: center;
-  justify-content: center;
-  transition: all 300ms ease;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.service-button {
+.search-record .hot .list .text {
+  font-size: 13px;
+  color: #000000;
+  background: #f4f4f8;
+  padding: 5px 50rpx;
+  border-radius: 50rpx;
+  box-sizing: border-box;
+  margin-right: 22rpx;
+  margin-bottom: 12rpx;
+}
+
+/* banner */
+
+.banner-box {
+  width: 700rpx;
+  overflow: hidden;
+  height: 340rpx;border-radius: 20rpx;
+  overflow:hidden;
+  position: relative;
+  background: #fff;margin: 20rpx auto;
+}
+
+.banner-box swiper {
+  height: 340rpx;
+}
+
+.banner-box .indicator-dots {
   position: absolute;
-  top: 40rpx;
+  left: 50%;
+  top: 300rpx;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.service:active {
-  box-shadow: none;
+.banner-box .indicator-dots text {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: rgba(24, 23, 23, 0.6);
+  margin: 0 15rpx;
+  font-size: 0;
 }
 
-.request-text {
-  padding: 20rpx 0;
-  font-size: 24rpx;
-  line-height: 36rpx;
-  word-break: break-all;
+.banner-box .indicator-dots text.current {
+  background-color: #002469;
+  width: 8px;
+  height: 8px;
+}
+/*  */
+.hot-box{
+  width: 100%;
+}
+.hot-box .head{
+  width: 100%;height: 50px;
+  display: flex;justify-content: flex-start;align-items: center;
+  background: #f5504d;
+  font-size: 14px;font-weight: bold;color: #fff;
+  padding: 0 25rpx;box-sizing: border-box;
+}
+.hot-box .main{
+  background: #fff;padding: 25rpx;box-sizing: border-box;
+}
+/*  */
+/* 内容 */
+
+.hot-box .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hot-box .main .li {
+  margin: 20rpx auto 0;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(179, 177, 177, 0.6);
+  border-radius: 20rpx;
+  overflow: hidden;
+  padding: 20rpx;box-sizing: border-box;
+  display: flex;justify-content: flex-start;align-content: center;
+}
+.hot-box .main .li .img-box{
+  min-width: 160rpx;height: 160rpx;max-width: 160rpx;
+  display: flex;justify-content: center;align-content: center;
+}
+.hot-box .main .li:last-child {
+  margin: 20rpx auto;
+}
+
+.hot-box .main .li .title {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+
+.hot-box .main .li .title .value {
+  display: block;
+  overflow: hidden;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-size: 15px;
+  color: #010101;
+}
+.hot-box .main .li .title .desc {
+  font-size: 11px;
+  color: #747272;
+  display: block;
+  overflow: hidden;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.hot-box .main .li .title .keen-on {
+  /* min-width: 110rpx; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;bottom: 0;right: 0;
+}
+
+.hot-box .main .li .title .keen-on .like {
+  width: 36rpx;
+  height: 32rpx;
+  background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center top no-repeat;
+  background-size: 36rpx auto;
+  margin: 0 8px;
+}
+
+.hot-box .main .li .title .keen-on .like.active {
+  background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center bottom no-repeat;
+  background-size: 36rpx auto;
+}
+
+.hot-box .main .li .title .keen-on .share {
+  width: 36rpx;
+  height: 32rpx;
+  background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/share-icon.png) center top no-repeat;
+  background-size: 36rpx auto;
+  position: relative;
 }

@@ -26,3 +26,12 @@
             <text class="text {{item.dian?'dian':''}}">{{item.is}}</text>
         </view>             
     </view>
+
+        <!-- 立即使用 -->
+        <view class="erwm-pop" hidden="{{!erwmShow}}" bindtap="erwmTap">
+            <view class="erwm-main">
+                <text class="name">{{cardTitle}}</text>
+                <view class="erwm"><canvas canvas-id="canvas"></canvas></view>
+                <text class="text">请出示给门店工作人员</text>
+            </view>
+        </view>

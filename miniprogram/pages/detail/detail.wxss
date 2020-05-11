@@ -1,0 +1,142 @@
+/* pages/detail/detail.wxss */
+
+page{
+    background: #e8e8f1;
+    width: 100%;height: 100%;
+    display: flex;justify-content: flex-start;
+    flex-direction: column;flex:1;
+}
+.content-page{
+    /* padding: 20rpx;box-sizing: border-box;
+    background: #fff; */
+    width: 100%;height: 100%;overflow-y: scroll;
+}
+.btn{
+    width: 100%;height: 40px;
+}
+.btn .btn-box{
+    width: 100%;height: 40px;
+    position: fixed;bottom: 0;left: 0;z-index: 99999;background: #fff;
+    box-shadow: 0 0 12px rgba(66, 66, 66,0.6);
+    display: flex;justify-content: flex-end;align-items: center;
+    /* padding-left: 40rpx;box-sizing: border-box; */
+}
+.banner{
+
+}
+.banner .img-box{
+    padding: 20rpx;box-sizing: border-box;
+    background: #fff;
+}
+.ul{
+    margin: 20rpx auto;background: #fff;
+    width: 100%;padding: 40rpx ;box-sizing: border-box;
+}
+.ul .li {
+    font-size: 12px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 15rpx;
+}
+
+.ul .li .name {
+    min-width: 200rpx;
+    display: block;
+}
+
+.ul .li .num {
+    color: #999;
+    font-size: 10px;
+    display: block;
+    width: 50rpx;
+}
+.red {
+    color: #c2072e;
+}
+.ul .li .rmb {
+    display: block;
+}
+.relevant{
+    margin: 20rpx auto;
+    background: #fff;
+    padding: 20rpx;box-sizing: border-box;
+}
+.relevant .title{
+    width: 100%;height: 40px;display: flex;
+    justify-content: space-between;align-items: center;
+    font-size: 14px;color: #000;font-weight: bold;
+}
+.relevant .item{
+    width: 210rpx;padding: 10rpx;box-sizing: border-box;
+}
+.relevant .item .img-box{
+    width: 100%;height: 200rpx;
+    display: flex;justify-content: center;align-items: center;
+}
+.relevant .item .name{
+    font-size: 12px;color: rgb(66, 66, 66);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    line-clamp: 2;margin: 2px 0;
+    -webkit-box-orient: vertical;
+}
+.relevant .item .author{
+    font-size: 10px;color:#999;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp:1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+
+.btn .btn-box .keen-on {
+    /* min-width: 110rpx; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* position: absolute;bottom: 0;right: 0; */
+    font-size: 10px;color: #999;
+    margin-right: 40rpx;
+}
+.btn .btn-box .keen-on .keen-on-box{
+    display: flex;justify-content: center;align-items: stretch;
+    flex-direction: column;height: 40px;
+    
+}
+.btn .btn-box .keen-on .keen-on-box text{
+    text-align: center;
+}
+.btn .btn-box .keen-on .like {
+    width: 36rpx;
+    height: 32rpx;
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center top no-repeat;
+    background-size: 36rpx auto;
+    margin: 0 30rpx;
+}
+
+.btn .btn-box .keen-on .like.active {
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/like-icon.png) center bottom no-repeat;
+    background-size: 36rpx auto;
+}
+
+.btn .btn-box .keen-on .share {
+    width: 36rpx;
+    height: 32rpx;
+    background: url(https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/classify/share-icon.png) center top no-repeat;
+    background-size: 36rpx auto;
+    position: relative;margin-bottom: 2px;
+}
+.btn .btn-box .is-my{
+    width: 280rpx;height: 100%;
+    font-size: 14px;color: #fff;font-weight: bold;
+    background: #80e1ee;text-align: center;line-height: 40px;
+}
+.btn .btn-box .add-my{
+    width: 280rpx;height: 100%;
+    font-size: 14px;color: #fff;font-weight: bold;
+    background: #2fc38f;text-align: center;line-height: 40px;
+}

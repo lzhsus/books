@@ -1,0 +1,78 @@
+<!--pages/detail/detail.wxml-->
+<view class="content-page" wx:if="{{pageShow}}">
+    <view class="banner">
+        <view class="img-box">
+            <image class="img100" src="{{detail.url}}" mode="widthFix" />
+        </view>
+    </view>
+
+    <view class="ul">
+        <view class="li">
+            <text class="name">书名：</text>
+            <text class="rmb">{{detail.title}}</text>
+        </view>
+        <view class="li">
+            <text class="name">作者：</text>
+            <text class="rmb">{{detail.author.name}}</text>
+        </view>
+        <view class="li">
+            <text class="name">发版时间：</text>
+            <text class="rmb">{{detail.publishing_time}}</text>
+        </view>
+        <view class="li">
+            <text class="name">发版社：</text>
+            <text class="rmb">{{detail.publishing_house}}</text>
+        </view>
+        <view class="li">
+            <text class="name">图书编号：</text>
+            <text class="rmb">{{detail._id}}</text>
+        </view>
+        <view class="li">
+            <text class="name">所属类别：</text>
+            <text class="rmb">{{detail.type_config}}</text>
+        </view>
+        <view class="li">
+            <text class="name">可借册数：</text>
+            <text class="rmb red">{{detail.inventory}}</text>
+        </view>
+        <view class="li">
+            <text class="name">书籍简介：</text>
+            <text class="rmb">{{detail.desc}}</text>
+        </view>
+    </view>
+<!-- 相关内容 -->
+    <view class="relevant">
+        <view class="title">
+            <text>相关推荐</text>
+        </view>
+        <view class="item" wx:for="{{product}}" wx:key="index">
+            <view class="img-box">
+                <image class="img100" src="{{item.url}}" mode="widthFix" />
+            </view>
+            <view class="name">{{item.title}}</view>
+            <view class="author">{{item.author.name}}[著]</view>
+        </view>
+    </view>
+</view>
+<!--  -->
+<view class="btn">
+    <view class="btn-box">
+        <view class="keen-on">
+            <view class="keen-on-box">
+                <view bindtap="likeBtn" class="like {{detail.is_favorites?'active':''}}"></view>
+                <text>收藏</text>
+            </view>
+            <view class="keen-on-box">
+                <view class="share">
+                    <button class="button-opacity" 
+                        data-id="{{detail._id}}" 
+                        data-name="{{detail.title}}" 
+                        data-imageUrl="{{detail.url}}" open-type="share">分享</button>
+                </view>
+                <text>分享</text>
+            </view>
+        </view>
+        <view class="is-my" bindtap="lookBorrowBtn">我的借阅</view>
+        <view class="add-my" bindtap="submitBorrowBtn">立即借阅</view>
+    </view>
+</view>

@@ -1,6 +1,9 @@
 <!--pages/login/login.wxml-->
 <view class="login-weapp">
-    <image class="img100" src="https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/login/bg.png" mode="widthFix" />
+    <image class="img100" src="../../static/bg.png" mode="widthFix" />
+    <view class="login">
+        <image class="img100" src="../../static/login.png" mode="widthFix" />
+    </view>
     <view class="input-box">
         <view class="input">
             <input type="number" maxlength='11' class="mobile" bindinput="mobileInput" placeholder="请输入手机号码" placeholder-class="pClass"></input>

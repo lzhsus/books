@@ -1,2 +1,49 @@
 <!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<view class="search-box">
+    <view class="search-top">
+        <van-search focus="{{focus}}" value="{{ searchValue }}" placeholder="请输入搜索关键词" use-action-slot bind:change="change" bind:search="search" bind:cancel="cancel"  bind:focus="bindfocus" bind:blur="bindblur">
+            <view slot="action" bind:tap="onClickSearch">搜索</view>
+        </van-search>
+    </view>
+</view>
+<view class="search-record" wx:if="{{searchShow==1}}">
+    <view class="hot" wx:if="{{searchHot.length}}">
+        <text class="title">热门搜索</text>
+        <view class="list">
+            <view class="text" wx:for="{{searchHot}}" bindtap="recordSearchTap" data-content="{{item.content}}"  wx:key="index">{{item.content}}</view>
+        </view>
+    </view> 
+</view> 
+
+<view class="main" wx:if="{{searchShow==2&&end}}">
+	<block wx:for="{{product}}" wx:key="index">
+		<view class="li">
+			<view class="img-box" bindtap="lookDetailBtn" data-item="{{item}}">
+				<image class="img100" src="{{item.url}}" mode="widthFix" />
+			</view>
+			<view class="title">
+				<view class="value" bindtap="lookDetailBtn" data-item="{{item}}">
+					{{item.title}}
+				</view>
+				<view class="desc" bindtap="lookDetailBtn" data-item="{{item}}">
+					{{item.desc}}
+				</view>
+				<view class="keen-on">
+					<view bindtap="likeBtn" data-index="{{index}}" class="like {{item.is_favorites?'active':''}}"></view>
+					<view class="share">
+						<button class="button-opacity" 
+							data-id="{{item._id}}" 
+							data-name="{{item.title}}" 
+							data-imageUrl="{{item.url}}" open-type="share">分享</button>
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+	<view class='nodata-box' wx:if="{{!product.length}}">
+		<view class="nodata-icon"></view>
+		<view class="nodata-text">
+			<view name="content">没有找到相关的内容...</view> 
+		</view>
+	</view>
+</view>

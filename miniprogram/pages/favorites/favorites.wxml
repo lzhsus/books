@@ -1,28 +1,43 @@
-<!--pages/favorites/favorites.wxml-->
-<view class="content" wx:if="{{pageShow}}">
-    <block wx:for="{{favoritesProList}}" wx:key="index">
-        <view class="li">
-            <view class="img-box" bindtap="lookDetailBtn">
-                <image class="img100" src="{{item.url}}" mode="widthFix" />
+<!--pages/library/library.wxml-->
+<view class="page-container" id="orderList" wx:if="{{pageShow}}">
+   
+    <view class="order-ul">
+        <block wx:for="{{product}}" wx:key="index">
+            <view class="li">
+                <view class="img-box" bindtap="lookDetailBtn">
+                    <image class="img100" src="{{item.product.url}}" mode="widthFix" />
+                </view>
+                <view class="title">
+                    <view class="value" bindtap="lookDetailBtn">
+                        {{item.product.title}}
+                    </view>
+                    <view class="desc" bindtap="lookDetailBtn">
+                        {{item.product.desc}}
+                    </view>
+                    <view class="item" style="color:#000" bindtap="lookDetailBtn">
+                        <view class="lable">所属类别</view>
+                        <view class="l-value">{{item.product.type_config}}</view>
+                    </view>
+                    
+                    <view class="keen-on">
+                        <view bindtap="likeBtn" data-index="{{index}}" class="like {{item.is_favorites?'active':''}}"></view>
+                        <view class="share">
+                             <button class="button-opacity" 
+                                 data-id="{{item.product._id}}" 
+                                 data-name="{{item.product.title}}" 
+                                 data-imageUrl="{{item.product.url}}" open-type="share">分享</button>
+
+                        </view>
+                    </view>
+                </view>
             </view>
-            <view class="title">
-                <view class="value" bindtap="lookDetailBtn">
-                    {{item.title}}
-                </view>
-                <view class="desc" bindtap="lookDetailBtn">
-                    {{item.desc}}
-                </view>
-                <view class="keen-on">
-                    <view bindtap="likeBtn" data-index="{{index}}" class="like {{item.is_favorites?'active':''}}"></view>
-                    <view class="share"><button class="button-opacity" open-type="share">分享</button></view>
-                </view>
+        </block>
+        <view class='nodata-box' wx:if="{{!product.length}}">
+            <view class="nodata-icon"></view>
+            <view class="nodata-text">
+                <view name="content">没有找到相关的内容...</view> 
             </view>
-        </view>
-    </block>
-    <view class='nodata-box' wx:if="{{!favoritesProList.length}}">
-        <view class="nodata-icon"></view>
-        <view class="nodata-text">
-            <view name="content">没有找到相关的内容...</view> 
         </view>
     </view>
 </view>
+<!-- 添加数据 -->

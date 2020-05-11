@@ -19,14 +19,25 @@
                     <view class="desc" bindtap="lookDetailBtn">
                         {{item.desc}}
                     </view>
-                    <view class="desc" style="color:#99CC66" bindtap="lookDetailBtn">
-                        {{item.status?'已上架':'已下架'}}
+                    <view class="item" style="color:#000" bindtap="lookDetailBtn">
+                        <view class="lable">是否上架</view>
+                        <view class="l-value" bindtap="changeStatus" data-index="{{index}}">
+                            <switch checked="{{item.status}}" bindchange="switch1Change"/>
+                        </view>
                     </view>
-                    <view class="desc" style="color:#CC0033" bindtap="lookDetailBtn">
-                        {{item.hot?'热门图书':''}}
+                    <view class="item" style="color:#000" bindtap="lookDetailBtn">
+                        <view class="lable">是否加入热门</view>
+                        <view class="l-value" bindtap="changeHot" data-index="{{index}}">
+                            <switch checked="{{item.hot}}" bindchange="switch1Change"/>
+                        </view>
                     </view>
-                    <view class="desc" style="color:#99CC99" bindtap="lookDetailBtn">
-                        {{item.type_config?'热门图书':''}}
+                    <view class="item" style="color:#000" bindtap="lookDetailBtn">
+                        <view class="lable">所属类别</view>
+                        <view class="l-value">{{item.type_config}}</view>
+                    </view>
+                    <view class="item" style="color:#000" bindtap="lookDetailBtn">
+                        <view class="lable">收藏次数</view>
+                        <view class="l-value">{{item.favorites_count||0}}次</view>
                     </view>
                     
                     <!-- <view class="keen-on">
@@ -42,6 +53,10 @@
                 <view name="content">没有找到相关的内容...</view> 
             </view>
         </view>
-    
     </view>
+</view>
+<!-- 添加数据 -->
+
+<view class="add">
+    <image class="" src="https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/add.png?sign=b4f7cbd43735d54ccc064637c0ee1b8d&t=1589205037" mode="widthFix" />
 </view>
