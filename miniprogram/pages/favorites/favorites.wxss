@@ -65,6 +65,8 @@ page{
 .order-ul .li .img-box{
     min-width: 200rpx;height: 200rpx;max-width: 200rpx;
     display: flex;justify-content: center;align-items: center;
+    padding: 18rpx;box-sizing: border-box;
+    overflow: hidden;
 }
 .order-ul .li:last-child {
     margin: 20rpx auto;

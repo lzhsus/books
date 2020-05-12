@@ -129,7 +129,9 @@
 }
 .hot-box .main .li .img-box{
   min-width: 160rpx;height: 160rpx;max-width: 160rpx;
+  overflow: hidden;
   display: flex;justify-content: center;align-content: center;
+  padding: 12rpx;box-sizing: border-box;
 }
 .hot-box .main .li:last-child {
   margin: 20rpx auto;
@@ -150,7 +152,7 @@
   -webkit-line-clamp: 1;
   line-clamp: 1;
   -webkit-box-orient: vertical;
-  font-size: 15px;
+  font-size: 15px;font-weight: bold;
   color: #010101;
 }
 .hot-box .main .li .title .desc {

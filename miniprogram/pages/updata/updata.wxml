@@ -1,2 +1,68 @@
 <!--pages/updata/updata.wxml-->
-<text>pages/updata/updata.wxml</text>
+
+<!--  -->
+<van-cell-group>
+  <van-field 
+    bind:change="onChangeName" value="{{ username }}" label="作者姓名:" placeholder="请输入作者姓名"/>
+</van-cell-group>
+<picker range="{{sexArray}}" range-key="name" value="{{sexid}}" bindchange="bindPickerSexChange">
+    <view class="item">
+        <view class="lable">作者性别</view>
+        <view class="value placeholder" wx:if="{{!sex.name}}">请选择作者性别</view>
+        <view class="value" wx:else>{{sex.name}}</view>
+    </view>
+</picker>
+<van-cell-group>
+  <van-field 
+    bind:change="onChangeBookeName" value="{{ book }}" label="图书名称" placeholder="请输入图书名称"/>
+  <van-field 
+    bind:change="onChangeHouse" value="{{ House }}" label="发版社" placeholder="请输入发版社"/>
+</van-cell-group>
+
+<picker mode="date" value="{{date}}"bindchange="bindDateChange">
+    <view class="item">
+        <view class="lable">发版时间</view>
+        <view class="value placeholder" wx:if="{{!time}}">请选择发版时间</view>
+        <view class="value" wx:else>{{time}}</view>
+    </view>
+</picker>
+
+<picker range="{{classify}}" range-key="name"  bindchange="bindPickerClassChange">
+    <view class="item">
+        <view class="lable">所属类别</view>
+        <view class="value placeholder" wx:if="{{!class}}">请选择所属类别</view>
+        <view class="value" wx:else>{{class}}</view>
+    </view>
+</picker>
+<van-cell-group>
+  <van-field 
+    bind:change="onChangeNum" value="{{ number }}" type="number" label="上架数量" placeholder="请输入上架数量（大于0）"/>
+  <van-field 
+    bind:change="onChangedesc" value="{{ desc }}"  label="描述" placeholder="请输入图书描述简介"/>
+</van-cell-group>
+<van-cell title="选择一张封面图片" use-label-slot>
+  <view slot="label">
+        <van-uploader file-list="{{ file }}" bind:after-read="afterRead" deletable='{{false}}'/>
+  </view>
+</van-cell>
+<!-- <block wx:for="{{tempFilePaths}}" wx:key="index">
+    <image class="img100" src="{{item}}" mode="widthFix" />
+</block> -->
+<view class="submit">
+    <van-button type="primary" bindtap="sumbitBtn">添加图书</van-button>
+</view>
+
+<view class="tag-box">
+    <block wx:for="{{classify}}" wx:key="index">
+        <van-tag type="primary">{{item.name}}-{{item.id}}</van-tag>
+    </block>
+</view>
+<van-cell-group>
+  <van-field 
+    bind:change="onChangeClassName"  label="添加所属类别" placeholder="添加所属类别名称"/>
+  <van-field 
+    bind:change="onChangeClassId" type="number" label="所属类别ID" placeholder="所属类别ID"/>
+</van-cell-group>
+<view class="submit">
+    <van-button type="warning" bindtap="classBtn">添加类别</van-button>
+</view>

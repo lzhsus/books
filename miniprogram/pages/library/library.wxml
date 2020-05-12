@@ -57,6 +57,6 @@
 </view>
 <!-- 添加数据 -->
 
-<view class="add">
+<view class="add" bindtap="lookadd">
     <image class="" src="https://6465-demo-q7d1r-1302081669.tcb.qcloud.la/add.png?sign=b4f7cbd43735d54ccc064637c0ee1b8d&t=1589205037" mode="widthFix" />
 </view>

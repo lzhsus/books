@@ -15,6 +15,12 @@ exports.main = async(event, context) => {
         case 'product': {
             return db_product_list(event)
         }
+        case 'addproduct': {
+            return addproduct(event)
+        }
+        case 'addclass': {
+            return addclass(event)
+        }
         case 'hotproduct': {
             return hotproductlist(event)
         }
@@ -66,13 +72,50 @@ async function db_product_classify(event) {
         success:true
     }
 }
+// 添加图书
+async function addproduct(event) {
+    const wxContext = cloud.getWXContext(); 
+    
+    var data_info = event;
+    data_info.openId = wxContext.OPENID;
+    data_info.create_time = db.serverDate();
+    data_info.updata_time = db.serverDate();
+   var res = await db.collection('db_product_list').add({
+        // data 字段表示需新增的 JSON 数据
+        data: data_info
+    })
+    return {
+        errcode:200,
+        result:res,
+        success:true
+    }
+}
+async function addclass(event) {
+    const wxContext = cloud.getWXContext(); 
+    
+    var data_info = event;
+    data_info.openId = wxContext.OPENID;
+    data_info.create_time = db.serverDate();
+    data_info.updata_time = db.serverDate();
+   var res = await db.collection('db_product_classify').add({
+        // data 字段表示需新增的 JSON 数据
+        data: data_info
+    })
+    return {
+        errcode:200,
+        result:res,
+        success:true
+    }
+}
+// 类别
+
 // 商品列表
 async function db_product_list(event) {
     const wxContext = cloud.getWXContext(); 
   
     var db_product_list= await db.collection('db_product_list').where({
         type:Number(event.type)
-    }).get()
+    }).limit(1000).get()
 
     for(let i=0;i<db_product_list.data.length;i++){
         var favorites = await db.collection('is_favorites').where({
@@ -94,7 +137,7 @@ async function hotproductlist(event) {
   
     var db_product_list= await db.collection('db_product_list').where({
         hot:1
-    }).get()
+    }).limit(1000).get()
     db_product_list = db_product_list.data
     for(let i=0;i<db_product_list.length;i++){
         var favorites = await db.collection('is_favorites').where({
@@ -143,7 +186,7 @@ async function getfavorites(event) {
     const wxContext = cloud.getWXContext(); 
     var productClassify= await db.collection('is_favorites').where({
         openId:wxContext.OPENID
-    }).get()
+    }).limit(1000).get()
     productClassify = productClassify.data||[]
         
     for(let i=0;i<productClassify.length;i++){
@@ -318,22 +361,26 @@ async function BorrowList(event) {
     if(event.type==0){
         var db_product_list= await db.collection('db_borrow_list')
         .limit(1000)
+        .orderBy('out_trade_no', 'desc')
         .get()
     }else if(event.type==1){
         //  借阅中
         var db_product_list= await db.collection('db_borrow_list').where({
             status:1
-        }).limit(1000).get()
+        })
+        .limit(1000)
+        .orderBy('out_trade_no', 'desc')
+        .get()
     }else if(event.type==2){
         // 已归还
         var db_product_list= await db.collection('db_borrow_list').where({
             status:2
-        }).limit(1000).get()
+        }).limit(1000).orderBy('out_trade_no', 'desc').get()
     }else if(event.type==3){
         // 已取消
         var db_product_list= await db.collection('db_borrow_list').where({
             status:3
-        }).limit(1000).get()
+        }).limit(1000).orderBy('out_trade_no', 'desc').get()
     }
 
     return {
@@ -372,11 +419,11 @@ async function searchmore(event) {
                     })
                 }
             }
-        ])).get();
+        ])).limit(1000).get();
     }else{
         var res= await db.collection('db_product_list').where({
             status:1
-        }).get();
+        }).limit(1000).get();
     }
     
     res = res.data||[]
@@ -386,7 +433,7 @@ async function searchmore(event) {
         var favorites = await db.collection('is_favorites').where({
             openId:wxContext.OPENID,
             productId:res[i]._id
-        }).get()
+        }).limit(1000).get()
         res[i].is_favorites = favorites.data.length
     }
 

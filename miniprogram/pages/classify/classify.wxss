@@ -85,6 +85,8 @@ page{
 .main-right scroll-view .li .img-box{
     min-width: 160rpx;height: 160rpx;max-width: 160rpx;
     display: flex;justify-content: center;align-content: center;
+    padding: 12rpx;box-sizing: border-box;
+    overflow: hidden;
 }
 .main-right scroll-view .li:last-child {
     margin: 20rpx auto;

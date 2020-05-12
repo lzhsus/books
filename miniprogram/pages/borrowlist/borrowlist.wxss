@@ -67,7 +67,7 @@ page{
 }
 .order-ul .li {
     overflow: hidden;
-    padding: 20rpx;box-sizing: border-box;
+    padding:0 20rpx 20rpx;box-sizing: border-box;
     display: flex;justify-content: flex-start;align-items: stretch;
 }
 .order-ul .li .head-box{
@@ -79,6 +79,8 @@ page{
 .order-ul .li .img-box{
     min-width: 200rpx;height: 200rpx;max-width: 200rpx;
     display: flex;justify-content: center;align-items: center;
+    padding: 16rpx;box-sizing: border-box;
+    overflow: hidden;
 }
 
 .order-ul .li .title {

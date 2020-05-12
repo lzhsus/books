@@ -42,7 +42,7 @@ page{
 }
 
 .ul .li .name {
-    min-width: 200rpx;
+    min-width: 180rpx;
     display: block;
 }
 
@@ -68,11 +68,15 @@ page{
     justify-content: space-between;align-items: center;
     font-size: 14px;color: #000;font-weight: bold;
 }
+.relevant .more-pro{
+    display: flex;justify-content: flex-start;
+    flex-wrap: wrap;
+}
 .relevant .item{
-    width: 210rpx;padding: 10rpx;box-sizing: border-box;
+    width: 220rpx;padding: 10rpx;box-sizing: border-box;
 }
 .relevant .item .img-box{
-    width: 100%;height: 200rpx;
+    width: 100%;height: 200rpx;overflow: hidden;
     display: flex;justify-content: center;align-items: center;
 }
 .relevant .item .name{

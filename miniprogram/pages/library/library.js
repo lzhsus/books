@@ -152,5 +152,10 @@ Page({
                 })
             }
         })
+    },
+    lookadd(){
+        wx.navigateTo({
+          url: '/pages/updata/updata',
+        })
     }
 })

@@ -83,6 +83,13 @@
 					"id": -1,
 					"name": "pages/borrowlist/borrowlist",
 					"pathName": "pages/borrowlist/borrowlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/updata/updata",
+					"pathName": "pages/updata/updata",
 					"scene": null
 				}
 			]

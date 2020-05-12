@@ -1,5 +1,7 @@
 /* pages/myinfo/myinfo.wxss */
-
+page{
+    background: #fff;
+}
 #userPerfectInfo {}
 
 #userPerfectInfo .form-list {

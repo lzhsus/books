@@ -45,12 +45,14 @@
         <view class="title">
             <text>相关推荐</text>
         </view>
-        <view class="item" wx:for="{{product}}" wx:key="index">
-            <view class="img-box">
-                <image class="img100" src="{{item.url}}" mode="widthFix" />
+        <view class="more-pro">
+            <view class="item" wx:for="{{product}}" wx:key="index">
+                <view class="img-box">
+                    <image class="img100" src="{{item.url}}" mode="widthFix" />
+                </view>
+                <view class="name">{{item.title}}</view>
+                <view class="author">{{item.author.name}}[著]</view>
             </view>
-            <view class="name">{{item.title}}</view>
-            <view class="author">{{item.author.name}}[著]</view>
         </view>
     </view>
 </view>
