@@ -360,12 +360,16 @@ async function BorrowList(event) {
     const wxContext = cloud.getWXContext(); 
     if(event.type==0){
         var db_product_list= await db.collection('db_borrow_list')
+        .where({
+            openId:wxContext.OPENID
+        })
         .limit(1000)
         .orderBy('out_trade_no', 'desc')
         .get()
     }else if(event.type==1){
         //  借阅中
         var db_product_list= await db.collection('db_borrow_list').where({
+            openId:wxContext.OPENID,
             status:1
         })
         .limit(1000)
@@ -374,11 +378,13 @@ async function BorrowList(event) {
     }else if(event.type==2){
         // 已归还
         var db_product_list= await db.collection('db_borrow_list').where({
+            openId:wxContext.OPENID,
             status:2
         }).limit(1000).orderBy('out_trade_no', 'desc').get()
     }else if(event.type==3){
         // 已取消
         var db_product_list= await db.collection('db_borrow_list').where({
+            openId:wxContext.OPENID,
             status:3
         }).limit(1000).orderBy('out_trade_no', 'desc').get()
     }

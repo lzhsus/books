@@ -82,6 +82,11 @@ Page({
         })
         this.getDataproduct()
     },
+    look(){
+        wx.navigateTo({
+          url: '/pages/updata/updata',
+        })
+    },
     changeStatus(e){
         wx.showLoading({
             title: '加载中',

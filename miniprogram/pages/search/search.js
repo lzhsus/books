@@ -42,6 +42,13 @@ Page({
         })
         this.onClickSearch()
     },
+    // 查看详情
+    lookDetailBtn(e){
+        var item = e.currentTarget.dataset.item;
+        wx.navigateTo({
+          url: '/pages/detail/detail?id='+item._id,
+        })
+    },
     /**
      * 生命周期函数--监听页面显示
      */

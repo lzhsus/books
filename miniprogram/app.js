@@ -31,6 +31,7 @@ App({
             res = res.result
             wx.hideLoading()
             if (res.success) {
+                console.log(res.result)
                 this.globalData.userInfo = res.result
             }else{
                 wx.showModal({

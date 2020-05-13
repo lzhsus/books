@@ -17,29 +17,34 @@ Page({
                 icon: 'icon-2',
                 name: '我的借阅',
                 dian: false,
+                show:true,
                 type: "2-2",
             },
             {
                 icon: 'icon-3',
                 name: '我的收藏',
                 dian: false,
+                show:true,
                 type: "2-3",
             },          
             {
                 icon: 'icon-9',
                 name: '个人信息',
                 dian: false,
+                show:true,
                 type: "2-5",
             },
             {
                 icon: 'icon-5',
                 name: '版本信息',
                 dian: false,
+                show:true,
                 type: "2-6",
             },{
                 icon: 'icon-10',
                 name: '管理图书',
                 is:"管理员",
+                show:true,
                 dian: false,
                 type: "2-7",
             },
@@ -47,12 +52,14 @@ Page({
                 icon: 'icon-8',
                 name: '探索更多',
                 dian: false,
+                show:true,
                 type: "2-8",
             },
             {
                 icon: 'icon-3',
                 name: '我的电子卡',
                 dian: false,
+                show:true,
                 type: "2-9",
             }
         ],
@@ -69,17 +76,23 @@ Page({
      * 生命周期函数--监听页面显示
      */
     async  onShow () {
-
         await app.getUserInfo().then(res => {
             console.log(app.globalData.userInfo)
-            this.setData({
-                userInfo: app.globalData.userInfo
-            })
             if(!app.globalData.userInfo.isMember){
-                wx.navigateTo({
+                wx.redirectTo({
                   url: '/pages/login/login',
                 })
+                return
             }
+            if(!app.globalData.userInfo.administrator){
+                var mylistDatas = this.data.mylistDatas
+                mylistDatas[4].show = false;
+            }
+            this.setData({
+                userInfo: app.globalData.userInfo,
+                mylistDatas:mylistDatas,
+                pageShow:true
+            })
         })
     },
     

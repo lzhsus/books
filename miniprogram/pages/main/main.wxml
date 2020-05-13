@@ -1,37 +1,40 @@
 <!--pages/main/main.wxml-->
 <!-- 用户 -->
+<view class="main" wx:if="{{pageShow}}">
+    <view class="user-head">
+        <view class="my-userinfo">
+            <view class="my-userinfo-top">
+                <view class="userinfo-avatar">
+                    <open-data class="img" type="userAvatarUrl"></open-data>
+                </view>
+                <view class="userinfo-right">
+                    <view class="userinfo-right-head">
+                        <view class="login" wx:if="{{userInfo.isMember==0}}"><button class="botton" bindtap="openLoginTap">登录/注册</button></view>
+                        <view class="name" wx:if="{{userInfo.isMember!=0}}">
+                            <open-data type="userNickName"></open-data>
+                        </view>
+                    </view>
+                    <view class="userinfo-right-footer" wx:if="{{userInfo.isMember!=0}}">
+                        <text class="mobile">{{userInfo.code_mobile}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
 
-<view class="user-head">
-    <view class="my-userinfo">
-        <view class="my-userinfo-top">
-            <view class="userinfo-avatar">
-                <open-data class="img" type="userAvatarUrl"></open-data>
-            </view>
-            <view class="userinfo-right">
-                <view class="userinfo-right-head">
-                    <view class="login" wx:if="{{userInfo.isMember==0}}"><button class="botton" bindtap="openLoginTap">登录/注册</button></view>
-                    <view class="name" wx:if="{{userInfo.isMember!=0}}"><open-data type="userNickName"></open-data></view>                        
-                </view>
-                <view class="userinfo-right-footer" wx:if="{{userInfo.isMember!=0}}">
-                    <text class="mobile">{{userInfo.code_mobile}}</text>
-                </view>
-            </view>
+    <view class="my-list">
+        <view class="item" hover-class="this" wx:for="{{mylistDatas}}" wx:key="index" bindtap="oepnPageTap" data-item="{{item}}" wx:if="{{item.show}}">
+            <text class="name {{item.icon}}">{{item.name}}</text>
+            <text class="text {{item.dian?'dian':''}}">{{item.is}}</text>
+        </view>
+    </view>
+
+    <!-- 立即使用 -->
+    <view class="erwm-pop" hidden="{{!erwmShow}}" bindtap="erwmTap">
+        <view class="erwm-main">
+            <text class="name">{{cardTitle}}</text>
+            <view class="erwm"><canvas canvas-id="canvas"></canvas></view>
+            <text class="text">请出示给门店工作人员</text>
         </view>
     </view>
 </view>
-
-    <view class="my-list">
-        <view class="item" hover-class="this" wx:for="{{mylistDatas}}" wx:key="index" bindtap="oepnPageTap" data-item="{{item}}">
-            <text class="name {{item.icon}}">{{item.name}}</text> 
-            <text class="text {{item.dian?'dian':''}}">{{item.is}}</text>
-        </view>             
-    </view>
-
-        <!-- 立即使用 -->
-        <view class="erwm-pop" hidden="{{!erwmShow}}" bindtap="erwmTap">
-            <view class="erwm-main">
-                <text class="name">{{cardTitle}}</text>
-                <view class="erwm"><canvas canvas-id="canvas"></canvas></view>
-                <text class="text">请出示给门店工作人员</text>
-            </view>
-        </view>
